@@ -76,5 +76,7 @@ idInput.bind('<KeyRelease>', updateId)
 if getClipboard().startswith(meetUrl):
     pasteFromClipboard()
 
-window.lift() # bring app to front
+# mac support for bring to front
+subprocess.Popen(['/usr/bin/osascript', '-e', 'tell app "Finder" to set frontmost of process "Python" to true'])
+
 window.mainloop()
